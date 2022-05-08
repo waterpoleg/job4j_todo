@@ -1,6 +1,7 @@
 CREATE TABLE items (
  id SERIAL PRIMARY KEY,
+ name TEXT,
  description TEXT,
- created TEXT,
+ created TIMESTAMP,
  done BOOLEAN default false
 );
