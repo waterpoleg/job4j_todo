@@ -2,9 +2,6 @@ package ru.job4j.todo.persistence;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.stereotype.Repository;
 import ru.job4j.todo.model.Item;
 
@@ -14,13 +11,11 @@ import java.util.List;
 @Repository
 public class ItemStore {
 
-    private final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-            .configure()
-            .build();
+    private final SessionFactory sf;
 
-    private final SessionFactory sf = new MetadataSources(registry)
-            .buildMetadata()
-            .buildSessionFactory();
+    public ItemStore(SessionFactory sf) {
+        this.sf = sf;
+    }
 
     public void add(Item item) {
         Session session = sf.openSession();
