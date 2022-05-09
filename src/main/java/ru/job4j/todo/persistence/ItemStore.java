@@ -30,7 +30,21 @@ public class ItemStore {
     public Collection<Item> findAll() {
         Session session = sf.openSession();
         session.beginTransaction();
-        List items = session.createQuery("from ru.job4j.todo.model.Item").list();
+        List items = session
+                .createQuery("from Item")
+                .list();
+        session.getTransaction().commit();
+        session.close();
+        return items;
+    }
+
+    public Collection<Item> findByCondition(boolean condition) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        List items = session
+                .createQuery("from Item where done = :param")
+                .setParameter("param", condition)
+                .list();
         session.getTransaction().commit();
         session.close();
         return items;

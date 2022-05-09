@@ -24,4 +24,8 @@ public class ItemService {
     public Object findAll() {
         return new ArrayList<>(itemStore.findAll());
     }
+
+    public Object findByCondition(boolean condition) {
+        return new ArrayList<>(itemStore.findByCondition(condition));
+    }
 }

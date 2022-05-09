@@ -45,4 +45,16 @@ public class IndexController {
         itemService.create(item);
         return "redirect:/items";
     }
+
+    @GetMapping("/completedItems")
+    public String completedItems(Model model) {
+        model.addAttribute("items", itemService.findByCondition(true));
+        return "items";
+    }
+
+    @GetMapping("/newItems")
+    public String newItems(Model model) {
+        model.addAttribute("items", itemService.findByCondition(false));
+        return "items";
+    }
 }
