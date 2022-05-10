@@ -28,4 +28,8 @@ public class ItemService {
     public Object findByCondition(boolean condition) {
         return new ArrayList<>(itemStore.findByCondition(condition));
     }
+
+    public Object findById(int id) {
+        return itemStore.findById(id);
+    }
 }

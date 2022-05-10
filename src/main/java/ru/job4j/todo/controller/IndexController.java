@@ -3,9 +3,7 @@ package ru.job4j.todo.controller;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.job4j.todo.model.Item;
 import ru.job4j.todo.service.ItemService;
 
@@ -56,5 +54,11 @@ public class IndexController {
     public String newItems(Model model) {
         model.addAttribute("items", itemService.findByCondition(false));
         return "items";
+    }
+
+    @GetMapping("/itemDetails/{itemId}")
+    public String itemDetails(Model model, @PathVariable("itemId") int id) {
+        model.addAttribute("item", itemService.findById(id));
+        return "itemDetails";
     }
 }

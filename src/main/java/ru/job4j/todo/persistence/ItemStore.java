@@ -49,4 +49,13 @@ public class ItemStore {
         session.close();
         return items;
     }
+
+    public Item findById(int id) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        Item item = session.get(Item.class, id);
+        session.getTransaction().commit();
+        session.close();
+        return item;
+    }
 }
