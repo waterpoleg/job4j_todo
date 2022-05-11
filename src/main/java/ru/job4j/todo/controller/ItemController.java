@@ -66,4 +66,16 @@ public class ItemController {
         itemService.deleteItem(id);
         return items(model);
     }
+
+    @GetMapping("/editItem/{itemId}")
+    public String editItem(Model model, @PathVariable("itemId") int id) {
+        model.addAttribute("item", itemService.findById(id));
+        return "formEditItem";
+    }
+
+    @PostMapping("/updateItem")
+    public String updateItem(Model model, @ModelAttribute Item item) {
+        itemService.updateItem(item);
+        return itemDetails(model, item.getId());
+    }
 }

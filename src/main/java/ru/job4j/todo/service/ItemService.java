@@ -40,4 +40,7 @@ public class ItemService {
     public void deleteItem(int id) {
         itemStore.deleteItem(id);
     }
+
+    public void updateItem(Item item) {
+        itemStore.updateItem(item);    }
 }

@@ -78,4 +78,12 @@ public class ItemStore {
         session.getTransaction().commit();
         session.close();
     }
+
+    public void updateItem(Item item) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        session.update(item);
+        session.getTransaction().commit();
+        session.close();
+    }
 }
