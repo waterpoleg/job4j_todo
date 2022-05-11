@@ -68,4 +68,14 @@ public class ItemStore {
         session.getTransaction().commit();
         session.close();
     }
+
+    public void deleteItem(int id) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        session.createQuery("delete from Item where id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
 }

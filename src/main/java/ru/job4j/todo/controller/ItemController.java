@@ -60,4 +60,10 @@ public class ItemController {
         itemService.setCompleted(id);
         return itemDetails(model, id);
     }
+
+    @GetMapping("/deleteItem/{itemId}")
+    public String deleteItem(Model model, @PathVariable("itemId") int id) {
+        itemService.deleteItem(id);
+        return items(model);
+    }
 }

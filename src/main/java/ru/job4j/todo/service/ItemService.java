@@ -36,4 +36,8 @@ public class ItemService {
     public void setCompleted(int id) {
         itemStore.setCompleted(id);
     }
+
+    public void deleteItem(int id) {
+        itemStore.deleteItem(id);
+    }
 }
