@@ -58,4 +58,14 @@ public class ItemStore {
         session.close();
         return item;
     }
+
+    public void setCompleted(int id) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        session.createQuery("update Item set done = true where id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
 }

@@ -51,10 +51,12 @@
                     <p class="card-text" th:text="${item.description}"/>
                     <form th:action="@{|/doneItem/${item.id}|}" method="GET">
                         <span th:if="${!item.done}">
-                            <button type="submit" class="btn btn-outline-success">Complete</button>
+                            <button type="submit" class="btn btn-outline-success"
+                                    th:formaction="@{|/setCompleted/${item.id}|}">Complete
+                            </button>
                         </span>
                         <button type="submit" class="btn btn-outline-warning"
-                                th:formaction="@{|/updateItem/${item.id}|}">Edit
+                                th:formaction="@{|/editItem/${item.id}|}">Edit
                         </button>
                         <button type="submit" class="btn btn-outline-danger"
                                 th:formaction="@{|/deleteItem/${item.id}|}">Delete

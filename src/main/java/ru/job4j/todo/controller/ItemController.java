@@ -54,4 +54,10 @@ public class ItemController {
         model.addAttribute("item", itemService.findById(id));
         return "itemDetails";
     }
+
+    @GetMapping("/setCompleted/{itemId}")
+    public String setCompleted(Model model, @PathVariable("itemId") int id) {
+        itemService.setCompleted(id);
+        return itemDetails(model, id);
+    }
 }

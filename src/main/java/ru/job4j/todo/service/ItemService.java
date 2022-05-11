@@ -32,4 +32,8 @@ public class ItemService {
     public Object findById(int id) {
         return itemStore.findById(id);
     }
+
+    public void setCompleted(int id) {
+        itemStore.setCompleted(id);
+    }
 }
