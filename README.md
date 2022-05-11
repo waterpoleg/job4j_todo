@@ -2,13 +2,13 @@
 
 ## TODO list
 
-Simplest ToDo app.
-All - all the tasks
-New - list of the tasks are in progress
-Completed - list of completed tasks
-Add - to add a new task
+Simplest ToDo app.<br>
+All - all the tasks<br>
+New - list of the tasks are in progress<br>
+Completed - list of completed tasks<br>
+Add - to add a new task<br>
 
-Technologies used: Java, Spring Boot, Thymeleaf, HTML, CSS, Bootstrap, Hibernate
+Technologies used: Java, Spring Boot, Thymeleaf, HTML, CSS, Bootstrap, Hibernate<br>
 
 ![alt text](src/main/resources/static/screenshots/splashscreen.png "Main page")
 
