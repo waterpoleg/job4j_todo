@@ -31,6 +31,16 @@
                 <a class="nav-item nav-link" th:href="@{/completedItems}">Completed</a>
                 <a class="nav-item nav-link" th:href="@{/addItem}">Add</a>
             </div>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" th:if="${user.name == 'Guest'}" th:href="@{/loginPage}">
+                    <span th:text="${user.name}"></span>
+                    <span> | Login</span>
+                </a>
+                <a class="nav-item nav-link" th:if="${user.name != 'Guest'}" th:href="@{/logout}">
+                    <span th:text="${user.name}"></span>
+                    <span> | Logout</span>
+                </a>
+            </div>
         </div>
     </nav>
     <div class="row" th:each="item : ${items}">
@@ -45,6 +55,10 @@
                             <p class="card-subtitle text-muted">
                                 Created
                                 <span th:text="${item.created}"/>
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                Author:
+                                <span th:text="${item.user.name}"/>
                             </p>
                         </div>
                         <div class="col-6 col-md-4 text-right align-self-center">

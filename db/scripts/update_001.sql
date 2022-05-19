@@ -3,5 +3,6 @@ CREATE TABLE items (
  name TEXT,
  description TEXT,
  created TIMESTAMP,
- done BOOLEAN default false
+ done BOOLEAN default false,
+ user_id int not null referecces usdrs(id)
 );
