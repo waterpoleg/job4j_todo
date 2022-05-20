@@ -4,5 +4,5 @@ CREATE TABLE items (
  description TEXT,
  created TIMESTAMP,
  done BOOLEAN default false,
- user_id int not null referecces usdrs(id)
+ user_id int not null references users(id)
 );

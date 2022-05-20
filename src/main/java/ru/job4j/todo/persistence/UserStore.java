@@ -38,7 +38,7 @@ public class UserStore {
     public Optional<User> add(User user) {
         this.tx(session -> {
             session.save(user);
-            return Optional.ofNullable(user);
+            return Optional.empty();
         });
         return Optional.ofNullable(user);
     }
